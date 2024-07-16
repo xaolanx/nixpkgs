@@ -167,6 +167,7 @@ let
       name,
       overrides ? (self: super: { }),
       extraNativeBuildInputs ? [ ],
+      callPackage ? null,
     }:
 
     let
@@ -225,6 +226,7 @@ let
               );
 
         overrides = self: super: (overrides self super) // { fetchurl = thisStdenv.fetchurlBoot; };
+        inherit callPackage;
       };
 
     in
